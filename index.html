@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>QUIZ GAME!!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function checkAnswers(button){
+                var answer = button.getAttribute('answer');
+                var response = document.getElementById('response');
+
+                if(answer === 'right')
+                {
+                    button.style.backgroundColor = 'green';
+                    response.innerHTML = 'Correct!!';
+                    response.style.color = 'green';
+                }
+                else
+                {
+                    button.style.backgroundColor = 'red';
+                    response.innerHTML = 'Incorrect';
+                    response.style.color = 'red';
+
+                }
+            }
+
+            function checkTextAnswers() {
+            var text = document.getElementById('text-answer');
+            var response = document.getElementById('text-response');
+            var answer = text.value;
+
+            if (answer === "Saturn" || answer === "saturn") {
+                text.style.backgroundColor = "green";
+                response.innerHTML = 'Correct!!';
+                response.style.color = 'green';
+            } else {
+                text.style.backgroundColor = "red";
+                response.innerHTML = 'Incorrect';
+                response.style.color = 'red';
+            }
+
+            // Prevent form submission
+            return false;
+        }
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia Question For kids!!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>How many planet are their in our Solar System?</h3>
+
+                <button answer="wrong" onclick="checkAnswers(this)">7</button>
+                <button answer="wrong" onclick="checkAnswers(this)">9</button>
+                <button answer="right" onclick="checkAnswers(this)">8</button>
+                <div id="response"></div>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Name a planet with a ring around itself?</h3>
+
+                <input id = "text-answer" type="text" placeholder = "Answer" autocomplete = "off" >
+                <button class="my-button" onclick="checkTextAnswers()">OK</button>
+
+                <div id="text-response"></div>
+                <!-- TODO: Add free response question here -->
+            </div>
+        </div>
+    </body>
+</html>
